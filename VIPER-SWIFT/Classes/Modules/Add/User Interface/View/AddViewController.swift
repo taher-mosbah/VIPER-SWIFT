@@ -48,6 +48,11 @@ class AddViewController: UIViewController, UITextFieldDelegate, AddViewInterface
         nameTextField.resignFirstResponder()
     }
     
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator!) {
+        transitioningBackgroundView.frame = CGRectMake(0, 0, size.width, size.height);
+        self.view.center =  CGPoint(x:size.width/2 , y:size.height/2);
+    }
+
     func dismiss() {
         eventHandler?.cancelAddAction()
     }
